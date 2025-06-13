@@ -76,16 +76,16 @@
 
     /* Raindrop styling */
     .rain-wrapper {
-      pointer-events: none; /* So rain doesn’t block clicks */
+      pointer-events: none;
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
       overflow: visible;
-      z-index: 5; /* Behind container */
+      z-index: 5;
     }
 
     .raindrop {
       position: absolute;
-      top: -20px;  /* start just above viewport */
+      top: -20px;
       width: 2px;
       background: linear-gradient(180deg, #00ffff, #0077aa);
       border-radius: 50% / 40%;
@@ -105,6 +105,13 @@
   </style>
 </head>
 <body>
+
+  <!-- 🎵 Background music -->
+  <audio autoplay loop>
+    <source src="Playground Rizz.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <div class="container">
     <h1>MR GAMES</h1>
     <nav>
@@ -119,7 +126,7 @@
 
   <script>
     const rainWrapper = document.querySelector('.rain-wrapper');
-    const numRaindrops = 100; // Adjust for more or less rain
+    const numRaindrops = 100;
 
     for (let i = 0; i < numRaindrops; i++) {
       const drop = document.createElement('div');
