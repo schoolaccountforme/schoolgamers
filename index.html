@@ -27,7 +27,7 @@
       animation: fadeIn 2s ease-out forwards;
       opacity: 0;
       position: relative;
-      z-index: 10; /* On top of rain */
+      z-index: 10;
     }
 
     @keyframes fadeIn {
@@ -45,12 +45,8 @@
     }
 
     @keyframes glow {
-      from {
-        text-shadow: 0 0 5px #f0db4f;
-      }
-      to {
-        text-shadow: 0 0 20px #f0db4f, 0 0 30px #f0db4f;
-      }
+      from { text-shadow: 0 0 5px #f0db4f; }
+      to { text-shadow: 0 0 20px #f0db4f, 0 0 30px #f0db4f; }
     }
 
     nav a {
@@ -74,7 +70,6 @@
       cursor: pointer;
     }
 
-    /* Raindrop styling */
     .rain-wrapper {
       pointer-events: none;
       position: fixed;
@@ -102,13 +97,30 @@
         opacity: 0;
       }
     }
+
+    .music-button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      background-color: #00ffff;
+      color: #0f2027;
+      box-shadow: 0 0 10px #00ffff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .music-button:hover {
+      box-shadow: 0 0 20px #00ffff;
+    }
   </style>
 </head>
 <body>
 
-  <!-- 🎵 Background music -->
-  <audio autoplay loop>
-    <source src="Playground Rizz.mp3" type="audio/mpeg">
+  <!-- 🎵 Audio element -->
+  <audio id="bg-music" loop>
+    <source src="Playground Rizz.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 
@@ -117,26 +129,3 @@
     <nav>
       <a href="Games.html">Play</a>
       <a href="leaderboard.html">Leaderboard</a>
-      <a href="about_us.html">About</a>
-    </nav>
-  </div>
-
-  <!-- Rain effect container -->
-  <div class="rain-wrapper" aria-hidden="true"></div>
-
-  <script>
-    const rainWrapper = document.querySelector('.rain-wrapper');
-    const numRaindrops = 100;
-
-    for (let i = 0; i < numRaindrops; i++) {
-      const drop = document.createElement('div');
-      drop.classList.add('raindrop');
-      drop.style.left = Math.random() * 100 + 'vw';
-      drop.style.height = (10 + Math.random() * 20) + 'px';
-      drop.style.animationDuration = (Math.random() * 1 + 0.7) + 's';
-      drop.style.animationDelay = (Math.random() * 5) + 's';
-      rainWrapper.appendChild(drop);
-    }
-  </script>
-</body>
-</html>
